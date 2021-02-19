@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Sarabun', sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- เมนูแท็บ -->
+    <nav class="navbar navbar-light " style="background-color:#8cff66;">
+        <span class="navbar-brand mb-0 h1 ps-3 ">
+            <h1><strong>โปรแกรมคำนวณรายรับรายจ่าย</strong></h1>
+        </span>
+    </nav>
+
+    <!-- เมนูเลือกประเภท -->
+    <div class="row justify-content-center pt-5 ">
+        <div class="col-4">
+            <select id="type_Select" class="form-select">
+                <option selected>เลือกประเภทธุรกรรม</option>
+                <option value="1">รายรับ</option>
+                <option value="2">รายจ่าย</option>
+            </select>
+        </div>
+    </div>
+    <!-- ฟอร์มข้อมูล -->
+    <div class="container pt-4"></div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h6>ชื่อรายการธุรกรรม</h6>
+            <div class="input-group mb-3">
+                <input onfocus="this.value=''" id="input_text" min="0" type="text" class="form-control">
+            </div>
+
+        </div>
+        <div class="col-4">
+            <h6>จำนวนเงิน</h6>
+            <div class="input-group mb-3">
+                <input onfocus="this.value=''" id="my_money" type="number" class="form-control" value="0" />
+                <span class="input-group-text">บาท</span>
+                <button type="button" onclick="alert_msg()" class="btn btn-primary">บันทึก</button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- ดึงข้อมูลรายรับและรายจ่ายที่รวมแล้วมาใส่ -->
+    <div class="container p-5">
+        <div class="row align-self-start">
+            <div class="col-6">
+                <h4 style="color:green;"><strong>รายรับทั้งหมด</strong></h4>
+                <p id=resultSum_income></p>
+            </div>
+            <div class="col-6">
+                <h4 style="color:red;"><strong>รายจ่ายทั้งหมด</strong></h4>
+                <p id=resultSum_expenses></p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- ตารางข้อมูล -->
+    <div class="container p-5">
+        <table class="table table-striped table-warning">
+            <thead>
+                <tr>
+                    <th scope="col">ลำดับที่</th>
+                    <th scope="col">ชื่อธุรกรรม</th>
+                    <th scope="col">ประเภทธุรกรรม</th>
+                    <th scope="col">จำนวนเงิน/บาท</th>
+                </tr>
+            <tbody id="table_input">
+                </thead>
+            </tbody>
+        </table>
+    </div>
+    <!-- ข้อมูลที่บวกลบกันแล้ว มาใส่ในหมวดนี้ -->
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-2">
+                <h4><strong>เงินสุทธิ</strong></h4>
+            </div>
+            <div class="col-3">
+                <h1 id="result_net_money"></h1>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
